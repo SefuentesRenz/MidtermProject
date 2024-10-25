@@ -33,7 +33,7 @@ class _RecipeListScreenState extends State<RecipeListScreen> {
         '1. Boil beef, 2. Add corn, 3. Simmer until tender.'),
     Recipe(
         'Pinakbet',
-        'Pinakbet is a traditional Filipino dish that showcases the rich flavors of vegetables and is often paired with shrimp paste (bagoong).',
+        'A traditional Filipino dish that showcases rich flavors of vegetables.',
         'Vegetables, shrimp paste, pork',
         '1. Saute vegetables, 2. Add shrimp paste, 3. Simmer.'),
   ];
@@ -43,6 +43,47 @@ class _RecipeListScreenState extends State<RecipeListScreen> {
     setState(() {
       recipes.add(newRecipe); // Add the new recipe to the list
     });
+  }
+
+  // Remove recipe function
+  void _removeRecipe(int index) {
+    setState(() {
+      recipes.removeAt(index); // Remove the recipe at the given index
+    });
+  }
+
+  // Show confirmation dialog for recipe removal
+  void _showConfirmationDialog(BuildContext context, int index) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Confirm Deletion'),
+          content:
+              Text('Are you sure you want to delete "${recipes[index].name}"?'),
+          actions: [
+            TextButton(
+              child: Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+            ),
+            TextButton(
+              child: Text('Delete'),
+              onPressed: () {
+                _removeRecipe(index);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('${recipes[index].name} removed'),
+                  ),
+                );
+                Navigator.of(context).pop(); // Close the dialog
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -55,13 +96,12 @@ class _RecipeListScreenState extends State<RecipeListScreen> {
         itemCount: recipes.length,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.all(10.0), // Add padding around each item
+            padding: const EdgeInsets.all(10.0),
             child: Container(
-              height: 100, // Set height to make the recipe container bigger
+              height: 100,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors
-                    .lightBlue.shade50, // Light background for the container
+                color: Colors.lightBlue.shade50,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black12,
@@ -70,28 +110,39 @@ class _RecipeListScreenState extends State<RecipeListScreen> {
                   ),
                 ],
               ),
-              child: ListTile(
-                title: Text(
-                  recipes[index].name,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                subtitle: Text(recipes[index].description),
-                onTap: () {
-                  // Navigate to the RecipeDetailScreen when recipe is tapped
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          RecipeDetailScreen(recipe: recipes[index]),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: ListTile(
+                      title: Text(
+                        recipes[index].name,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      subtitle: Text(recipes[index].description),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                RecipeDetailScreen(recipe: recipes[index]),
+                          ),
+                        );
+                      },
                     ),
-                  );
-                },
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.delete, color: Colors.red),
+                    onPressed: () {
+                      // Show confirmation dialog
+                      _showConfirmationDialog(context, index);
+                    },
+                  ),
+                ],
               ),
             ),
           );
         },
       ),
-      // Floating Action Button for adding a recipe
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
