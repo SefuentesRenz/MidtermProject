@@ -13,28 +13,29 @@ class _RecipeListScreenState extends State<RecipeListScreen> {
   List<Recipe> recipes = [
     Recipe(
         'Adobo',
-        'Delicious pork or chicken stewed in soy sauce and vinegar.',
-        'Pork, soy sauce, vinegar, garlic',
+        'Pinakbet Recipe (Filipino Mixed Vegetables with Shrimp Paste)Pinakbet is a traditional Filipino vegetable dish made with an assortment of local vegetables sautéed in shrimp paste (bagoong alamang). \n This Ilocano dish highlights the natural flavors of vegetables and is often served with pork for added richness. It’s a nutritious and flavorful dish perfect with steamed rice.',
+        '1/2 lb (250g) pork belly or pork shoulder, sliced into bite-sized pieces \n 2 tbsp cooking oil \n 1 onion, chopped \n 4 cloves garlic, minced \n 2 tomatoes, chopped \n 2 tbsp bagoong alamang (fermented shrimp paste) \n 1/2 cup water or broth \n \n Vegetables: \n 1 small bitter melon (ampalaya), sliced \n 1-2 eggplants, sliced into rounds \n 1 sweet potato or squash (kalabasa), cubed \n 1 bunch sitaw (long beans), cut into 2-inch pieces \n 1-2 okra, halved \n 1 bunch kangkong (water spinach) or malunggay (moringa leaves)\n',
         '1. Marinate pork, 2. Cook in a pot, 3. Simmer until tender.'),
     Recipe(
         'Sinigang',
-        'Tamarind-based sour soup with pork, shrimp, or fish.',
-        'Pork, tamarind, vegetables',
+        'Sinigang Recipe (Filipino Sour Soup) \n Sinigang is a popular Filipino soup known for its savory-sour flavor, often made with tamarind as the souring agent. It is a comforting dish commonly cooked with pork, shrimp, or fish, alongside vegetables like kangkong (water spinach), okra, and radish.',
+        '1.5 lbs (700g) pork belly (liempo) or pork ribs \n 8 cups water \n  1 onion, quartered \n  2 large tomatoes, quartered \n  2-3 pieces green chilies (siling haba, optional) \n  1 packet sinigang mix (or 1/2 cup fresh tamarind juice) \n  Salt and fish sauce (patis) to taste Vegetables: 1 radish (labanos), sliced into thin rounds \n 2 eggplants, sliced into rounds \n 6 pieces okra \n 1 bunch sitaw (long beans), cut into 2-inch pieces \n 1 bunch kangkong (water spinach) or bok choy \n 1-2 taro roots (gabi), peeled and quartered (optional, for thicker broth)',
         '1. Boil pork, 2. Add vegetables, 3. Season with tamarind.'),
     Recipe(
         'Kare-Kare',
-        'Peanut-based stew with oxtail and vegetables.',
-        'Oxtail, peanut butter, vegetables',
+        'Kare-Kare Recipe (Filipino Peanut Stew) \n Kare-Kare is a traditional Filipino stew known for its rich peanut sauce and tender meat, often served with a side of bagoong (fermented shrimp paste). It’s typically made with oxtail, pork hocks, or tripe, along with vegetables like eggplant, bok choy, and string beans. This dish is a crowd favorite at family gatherings and fiestas.',
+        'For the Meat: \n 2 lbs (900g) oxtail, tripe, or beef shank (you can combine or substitute with pork hocks) \n 8-10 cups water \n 1 onion, quartered \n 1 tsp salt \n 1 tsp peppercorns \n Optional: 1-2 banana blossoms (dried or fresh)',
         '1. Cook oxtail, 2. Prepare peanut sauce, 3. Mix with vegetables.'),
     Recipe(
+        //instructions kay not so sure pa
         'Bulalo',
-        'Beef shank soup with rich marrow bones.',
-        'Beef shank, corn, cabbage',
+        'Bulalo Recipe (Filipino Beef Marrow Stew) \n Bulalo is a hearty Filipino soup made with beef shanks and bone marrow, simmered slowly to extract rich flavors. It’s traditionally served with vegetables like cabbage, corn, and potatoes, making it a comforting dish perfect for rainy days.',
+        '2-3 lbs (900g-1.3kg) beef shank (with bone marrow) \n 1 large onion, quartered \n 8-10 cups water \n 2-3 ears of corn, cut into pieces \n 2 large potatoes, peeled and quartered \n 1 bundle pechay (or bok choy) \n 1/2 head of cabbage, quartered \n 2-3 green onions \n 2 tbsp fish sauce (patis) (adjust to taste) \n Salt and pepper to taste \n Optional: 1-2 star anise for additional aroma \n',
         '1. Boil beef, 2. Add corn, 3. Simmer until tender.'),
     Recipe(
         'Pinakbet',
-        'A traditional Filipino dish that showcases rich flavors of vegetables.',
-        'Vegetables, shrimp paste, pork',
+        'Pinakbet Recipe (Filipino Mixed Vegetables with Shrimp Paste) \n Pinakbet is a traditional Filipino vegetable dish made with an assortment of local vegetables sautéed in shrimp paste (bagoong alamang). This Ilocano dish highlights the natural flavors of vegetables and is often served with pork for added richness. It’s a nutritious and flavorful dish perfect with steamed rice.',
+        '1/2 lb (250g) pork belly or pork shoulder, sliced into bite-sized pieces 2 tbsp cooking oil \n 1 onion, chopped \n 4 cloves garlic, minced \n 2 tomatoes, chopped \n 2 tbsp bagoong alamang (fermented shrimp paste) \n 1/2 cup water or broth',
         '1. Saute vegetables, 2. Add shrimp paste, 3. Simmer.'),
   ];
 
