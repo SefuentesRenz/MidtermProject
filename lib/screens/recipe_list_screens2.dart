@@ -38,7 +38,7 @@ class _RecipeListScreenState extends State<RecipeListScreen> {
         '1. Saute vegetables, 2. Add shrimp paste, 3. Simmer.'),
   ];
 
-  // Function to add a new recipe to the list
+  // Add recipe function
   void _addRecipe(Recipe newRecipe) {
     setState(() {
       recipes.add(newRecipe); // Add the new recipe to the list
@@ -50,22 +50,6 @@ class _RecipeListScreenState extends State<RecipeListScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Philippine Viands Recipes'),
-        actions: [
-          // Add button for adding a new recipe
-          IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () {
-              // Navigate to the AddRecipeScreen when "+" button is pressed
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) =>
-                      AddRecipeScreen(onAddRecipe: _addRecipe),
-                ),
-              );
-            },
-          ),
-        ],
       ),
       body: ListView.builder(
         itemCount: recipes.length,
@@ -106,6 +90,21 @@ class _RecipeListScreenState extends State<RecipeListScreen> {
             ),
           );
         },
+      ),
+      // Floating Action Button for adding a recipe
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddRecipeScreen(
+                onAddRecipe: _addRecipe,
+              ),
+            ),
+          );
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.blue,
       ),
     );
   }
