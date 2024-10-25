@@ -22,16 +22,14 @@ class _AddRecipeScreenState extends State<AddRecipeScreen> {
     final ingredients = _ingredientsController.text;
     final instructions = _instructionsController.text;
 
-    if (name.isEmpty ||
-        description.isEmpty ||
-        ingredients.isEmpty ||
-        instructions.isEmpty) {
-      return;
+    if (name.isNotEmpty &&
+        description.isNotEmpty &&
+        ingredients.isNotEmpty &&
+        instructions.isNotEmpty) {
+      final newRecipe = Recipe(name, description, ingredients, instructions);
+      widget.onAddRecipe(newRecipe);
+      Navigator.pop(context); // Close the screen after adding the recipe
     }
-
-    final newRecipe = Recipe(name, description, ingredients, instructions);
-    widget.onAddRecipe(newRecipe);
-    Navigator.of(context).pop(); // Close the Add Recipe screen after submission
   }
 
   @override
@@ -50,17 +48,15 @@ class _AddRecipeScreenState extends State<AddRecipeScreen> {
             ),
             TextField(
               controller: _descriptionController,
-              decoration: InputDecoration(labelText: 'Short Description'),
+              decoration: InputDecoration(labelText: 'Description'),
             ),
             TextField(
               controller: _ingredientsController,
               decoration: InputDecoration(labelText: 'Ingredients'),
-              maxLines: 4,
             ),
             TextField(
               controller: _instructionsController,
               decoration: InputDecoration(labelText: 'Instructions'),
-              maxLines: 4,
             ),
             SizedBox(height: 20),
             ElevatedButton(
@@ -71,5 +67,14 @@ class _AddRecipeScreenState extends State<AddRecipeScreen> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _descriptionController.dispose();
+    _ingredientsController.dispose();
+    _instructionsController.dispose();
+    super.dispose();
   }
 }
