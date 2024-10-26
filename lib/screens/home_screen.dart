@@ -5,8 +5,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 45, 120, 233), // Set background color to navy blue
-      body: Center( // Center the contents of the screen
+      backgroundColor: const Color.fromARGB(255, 85, 173, 255), // Set background color to navy blue
+      body: Center(
+        // Center the contents of the screen
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center, // Center vertically
           children: [
